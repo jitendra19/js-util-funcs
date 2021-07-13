@@ -1,0 +1,17 @@
+<div id="app"></div>
+
+<input type="text" id="inputText" onkeyup="processChange()" />
+
+<script>
+  var processChange = debounce(() => saveChanges(), 1000);
+  function debounce(func, timeout = 500) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func.apply(this, ...args), timeout);
+    };
+  }
+  function saveChanges() {
+    console.log('debouced update trigger');
+  }
+</script>
